@@ -13,7 +13,7 @@ export default function CustomPlanContent() {
         {/* <!-- button-model-main --> */}
         <i className="fa-sharp fa-solid fa-ellipsis" data-bs-toggle="modal" data-bs-target="#mainModal"></i>
         {/* <!-- Modal --> */}
-        <div className="modal fade" id="mainModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div className="modal fade" id="mainModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div className="modal-dialog modal-dialog-centered">
             <div className="modal-content">
               <div className="modal-body">
