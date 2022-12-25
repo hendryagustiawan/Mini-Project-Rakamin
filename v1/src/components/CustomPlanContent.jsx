@@ -1,15 +1,16 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-export default function CustomPlanContent() {
+export default function CustomPlanContent({ id, todoId, name, progress_percentage }) {
   return (
-    <div className="plan-content">
-      <p className="plan-content-title">Re-designed the zero-g doggie bags. No more spills!</p>
+    <div className="plan-content mb-3">
+      <p className="plan-content-title">{name}</p>
       <hr style={{ borderTop: "dotted 1px" }} />
       <div className="d-flex align-items-center justify-content-between">
         <div className="progress">
-          <div className="progress-bar bg-success" role="progressbar" aria-label="Success example" style={{ width: "25%" }} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+          <div className="progress-bar bg-success" role="progressbar" aria-label="Success example" style={{ minWidth: progress_percentage }} aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
-        <span className="progress-precent me-4">30%</span>
+        <span className="progress-precent me-4">{progress_percentage}%</span>
         {/* <!-- button-model-main --> */}
         <i className="fa-sharp fa-solid fa-ellipsis" data-bs-toggle="modal" data-bs-target="#mainModal"></i>
         {/* <!-- Modal --> */}
@@ -29,7 +30,9 @@ export default function CustomPlanContent() {
                 </div>
 
                 <div className="btn-modal-delete" data-bs-toggle="modal" data-bs-target="#deleteModal">
-                  <i className="fa-solid fa-trash me-4 mb-3"></i>Delete
+                  <Link state={{ id, todoId }} className="text-decoration-none">
+                    <i className="fa-solid fa-trash me-4 mb-3"></i>Delete
+                  </Link>
                 </div>
               </div>
             </div>

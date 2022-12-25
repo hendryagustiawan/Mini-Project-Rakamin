@@ -1,6 +1,19 @@
 import React from "react";
+import { deleteItems } from "../store/actions/item";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 export default function ModalDelete() {
+  const { state } = useLocation();
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const handleDeleteItems = (id, todoId) => {
+    dispatch(deleteItems(id, todoId));
+    navigate("/");
+  };
+
   return (
     <div className="modal fade" id="deleteModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div className="modal-dialog modal-dialog-centered">
@@ -16,7 +29,7 @@ export default function ModalDelete() {
             <button type="button" className="btn btn" style={{ backgroundColor: "#ffffff", color: "black", border: "1px solid black" }} data-bs-dismiss="modal">
               Cancel
             </button>
-            <button type="button" className="btn btn" style={{ backgroundColor: "red", color: "#ffffff" }}>
+            <button onClick={() => handleDeleteItems(state.id, state.todoId)} type="submit" className="btn btn" style={{ backgroundColor: "red", color: "#ffffff" }}>
               Delete
             </button>
           </div>

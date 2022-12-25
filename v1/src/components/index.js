@@ -5,3 +5,4 @@ export { default as ModalDelete } from "./ModalDelete";
 export { default as ModalEdit } from "./ModalEdit";
 export { default as ModalNewTask } from "./ModalNewTask";
 export { default as CustomNavbar } from "./CustomNavbar";
+export { default as FormNewGroup } from "./FormNewGroup";
